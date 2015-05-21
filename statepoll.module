@@ -23,27 +23,28 @@ function statepoll_form() {
         '#title' => 'Ice Cream',
         '#type' => 'textfield',
         '#description' => t('Please enter your favorite ice cream flavor'),
-        '#element_validate' => array('element_validate_these_text_fields'),
+        '#element_validate' => array('element_validate_these_text_fields', 'element_validate_'),
         '#required'=> TRUE,
     );
 
     return $form;
 }
 
-function element_validate_these_text_fields($element)
-{
-    // $fave_ice_cream = $element['#value'];
-    $exceptions = array(0,1,2,3,4,5,6,7,8,9,"#","!","@","%");
-    $exploded_words = explode(" ", $element['#value']);
-        foreach($exploded_words as $word)
-        {
-            foreach($word as $character)
-             {
-                if (in_array($character, $exceptions))
-                {
-                    form_error($element, t('Please enter a word only, no numbers or special characters'));
-                }
-             }
-         }
-   // return $fave_ice_cream;
-}
+// function element_validate_these_text_fields($element)
+// {
+//     // $fave_ice_cream = $element['#value'];
+//     $exceptions = array(0,1,2,3,4,5,6,7,8,9);
+//     $exploded_words = explode(" ", $element['#value']);
+//     $exploded_characters = explode("", $exploded_words);
+//
+//         foreach($exploded_characters as $character)
+//         {
+//                 if (in_array($character, $exceptions))
+//                 {
+//                     form_error($element, t('Please enter a word only, no numbers or special characters'));
+//
+//                 }
+//              }
+//          }
+//    // return $fave_ice_cream;
+// }
