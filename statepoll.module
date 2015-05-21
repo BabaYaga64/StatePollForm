@@ -39,7 +39,7 @@ function element_validate_these_text_fields($element)
         {
             foreach($word as $character)
              {
-                if (in_array($element['#value'], $exceptions)
+                if (in_array($element['#value'], $exceptions))
                 {
                     form_error($element, t('Please enter a word only, no numbers or special characters'));
                 }
